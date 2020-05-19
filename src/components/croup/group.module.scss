@@ -1,0 +1,36 @@
+.selectionContainer {
+    width: 320px;
+    min-height: 230px;
+    box-shadow: 0 0 5px black;
+    border-radius: 4px;
+    padding: 15px;
+
+    h2 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 28px;
+    }
+
+    a {
+        font-weight: 300;
+        font-size: 14px;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .imgDiv {
+        width: 214px;
+        height: 214px;
+        margin: 10px auto;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.groupsContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

@@ -1,0 +1,33 @@
+.coinContainer {
+    width: 500px;
+    height: 120px;
+    // border: 1px solid;
+    margin: 12.5px 5px;
+    display: flex;
+
+    .imageDiv {
+        width: 120px;
+        height: 120px;
+        // margin: 5px;
+
+        img {
+            width: 100%;
+        }
+    }
+    .infoDiv {
+        flex-grow: 1;
+        padding-left: 25px;
+        // background-color: yellowgreen;
+
+        a {
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            color: #833ae0;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}

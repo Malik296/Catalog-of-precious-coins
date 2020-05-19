@@ -1,0 +1,121 @@
+.mainContainer {
+    padding: 0 50px;
+    // height: 250px;
+    // border: 1px solid;
+
+    .topComponent {
+        height: 250px;
+        // border: 1px solid;
+        display: flex;
+        width: 100%;
+        margin-bottom: 20px;
+        .leftSide {
+            flex: 50%;
+            // border: 1px solid;
+
+            .headerNameDiv {
+                // height: 75px;
+                position: relative;
+                padding-bottom: 27px;
+                // background-color: yellowgreen;
+                h1 {
+                    font-weight: 300;
+                    font-size: 50px;
+                    line-height: 59px;
+                    margin: 52px 0 0;
+                }
+
+                .breadCrumbDiv {
+                    position: absolute;
+                    bottom: 17px;
+                    a {
+                        margin: 0;
+                        padding: 0;
+
+                        font-weight: 500;
+                        font-size: 10px;
+                        text-decoration-line: underline;
+                        color: #b1abab;
+                    }
+                    span {
+                        margin: 0;
+                        font-weight: 500;
+                        font-size: 10px;
+                        text-decoration-line: none;
+                        color: #b1abab;
+                        cursor: auto;
+                    }
+                }
+            }
+
+            label {
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            input {
+                width: 375px;
+                height: 48px;
+                font-size: 18px;
+                margin: 7px 0;
+                padding: 0 10px;
+            }
+
+            button {
+                width: 120px;
+                height: 48px;
+                color: white;
+                border-style: none;
+                background-color: #833ae0;
+                margin-left: 30px;
+                cursor: pointer;
+            }
+
+            span {
+                font-weight: 300;
+                font-size: 14px;
+                text-decoration-line: underline;
+                cursor: pointer;
+            }
+
+            .filterContainer {
+                position: absolute;
+                padding: 10px 10px 0;
+                width: 790px;
+                min-height: 100px;
+                display: flex;
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.377);
+                background-color: white;
+
+                .leftSideF {
+                    flex: 50%;
+                    // border: 1px solid;
+
+                    select {
+                        width: 375px;
+                        height: 48px;
+                        margin: 5px 0 7px;
+                        font-size: 18px;
+                    }
+                }
+
+                .rightSideF {
+                    flex: 50%;
+                    padding-left: 7px;
+                    // border: 1px solid;
+                    input {
+                        width: 155px;
+                        height: 48px;
+                        margin: 5px 9px 7px 5px;
+                        font-size: 18px;
+                    }
+
+                    span {
+                        cursor: auto;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
