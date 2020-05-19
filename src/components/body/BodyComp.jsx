@@ -5,14 +5,14 @@ import { BodyTopComp } from './BodyTopComp';
 import { ListComponent } from './ListComp';
 import { Route, Switch } from "react-router-dom";
 import { CoinInfoComp } from './coin-info/CoinInfoComp';
-import RegistrationContainer from '../registrations/RegistrationContainer';
+// import RegistrationContainer from '../registrations/RegistrationContainer';
 
 
 export class BodyComp extends Component {
     render() {
         return (
             <div className={Style.mainContainer}>
-                <RegistrationContainer />
+                {/* <RegistrationContainer /> */}
                 {/* <BodyTopComp /> */}
                 <Switch>
                     <Route exact path="/coin/:id" component={CoinInfoComp} />

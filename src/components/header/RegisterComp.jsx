@@ -7,10 +7,10 @@ export class RegisterComp extends Component {
         return (
             <div className={Style.registerPopup}>
                 <div><p>Welcom to coins Site</p></div>
-                <hr/>
+                <hr />
                 <div className={Style.registerButtons}>
-                    <button className={Style.sgnIn}>Sign up</button>
-                    <button className={Style.sgnOut}>Log in</button>
+                    <button className={Style.sgnIn} onClick={() => this.props.onClickHandler('signUp')}>Sign up</button>
+                    <button className={Style.sgnOut} onClick={() => this.props.onClickHandler('signIn')}>Sign in</button>
                 </div>
             </div>
         );

@@ -4,22 +4,38 @@ import Style from './header.module.scss'
 import logo from '../../img/header/user.svg'
 import shoppingCart from '../../img/header/shopping-cart.svg'
 import { RegisterComp } from './RegisterComp';
+import RegistrationContainer from '../registrations/RegistrationContainer';
 
 export class HeaderComp extends Component {
     state = {
-        registerPopup: false,
+        myProfilePopup: false,
+
+        showRegisterPopup: false,
+        signInOrSignUp: '',
+    }
+
+    onClickHandler = (value) => {
+        this.setState({
+            myProfilePopup: false,
+            showRegisterPopup: true,
+            signInOrSignUp: value,
+        })
+    }
+
+    closeRegisterPopup = () => {
+        this.setState({showRegisterPopup: false});
     }
 
     showPopup = () => {
-        this.setState({registerPopup: true});
+        this.setState({myProfilePopup: true});
     }
 
     hiddenPopup = () => {
-        this.setState({registerPopup: false});
+        this.setState({myProfilePopup: false});
     }
 
     render() {
-        const showPopup = this.state.registerPopup;
+        const {myProfilePopup} = this.state;
         return (
             <div className={Style.headerContainer}>
                 <div className={Style.logoDiv}>
@@ -38,9 +54,9 @@ export class HeaderComp extends Component {
                     <span>My profile</span>
                     <span>&darr;</span>
 
-                    {showPopup ? <RegisterComp /> : null}                    
+                    {myProfilePopup ? <RegisterComp onClickHandler={this.onClickHandler}/> : null}                    
                 </div>
-
+                {this.state.showRegisterPopup ? <RegistrationContainer signInOrSignUp={this.state.signInOrSignUp} closeRegisterPopup={this.closeRegisterPopup} /> : null}
             </div>
         );
     }

@@ -17,6 +17,24 @@
         margin: 0 auto;
         background-color: white;
 
+        .closeButtonDiv {
+            padding: 15px 15px 0;
+            display: flex;
+            justify-content: flex-end;
+
+            span {
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 20px;
+                opacity: 0.4;
+            }
+
+            span:hover {
+                text-shadow: 0 0 5px #833ae0;
+                opacity: 1;
+            }
+        }
+
         .navDiv {
             padding-top: 30px;
             ul {
@@ -44,21 +62,28 @@
         }
 
         form {
+            position: relative;
             padding: 30px;
-            input {
-                width: 100%;
 
-                font-size: 14px;
-                // color: #333;
-                padding: 0 16px 0 10px;
-                border: 1px solid #ebebeb;
-                outline: 0;
-                height: 40px;
-                border-radius: 4px;
-                margin-top: 0;
+            .inputDiv {
                 margin-bottom: 20px;
-                -webkit-appearance: none;
-                // font-family: Roboto, "Open Sans", Helvetica, Arial;
+
+                input {
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 0 16px 0 10px;
+                    border: 1px solid #ebebeb;
+                    outline: 0;
+                    height: 40px;
+                    border-radius: 4px;
+                    margin-top: 0;
+                    -webkit-appearance: none;
+                }
+
+                span {
+                    font-size: 12px;
+                    color: #e62e04;
+                }
             }
 
             button {
@@ -70,6 +95,29 @@
                 color: white;
                 font-weight: 600;
                 cursor: pointer;
+            }
+
+            .incorrectInput {
+                background-color: #e62d042f;
+                text-align: center;
+                padding: 7px 0;
+                color: #e62e04;
+            }
+
+            .loadingDiv {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.671);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 44px;
+                }
             }
         }
     }
