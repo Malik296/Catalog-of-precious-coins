@@ -3,6 +3,7 @@ import { Component } from 'react';
 import Style from './body.module.scss';
 import { FilterComp } from './FilterComp';
 import { Link } from 'react-router-dom';
+import addNewCoin from '../../img/add-new-coin/add-new-coin1.svg'
 
 // import { connect } from 'react-redux';
 
@@ -31,6 +32,7 @@ export class BodyTopComp extends Component {
     }
 
     render() {
+        const adminTools = localStorage.getItem('admin');
         const { pathName } = this.props;
         let breadCrumbs = false;
         let headerName = '';
@@ -47,7 +49,7 @@ export class BodyTopComp extends Component {
                 <div className={Style.leftSide}>
                     <div className={Style.headerNameDiv}>
                         <h1>{headerName}</h1>
-                        {breadCrumbs ? (<div  className={Style.breadCrumbDiv}><Link to='/'>Homepage</Link><span> -- {headerName}</span></div>) : null}
+                        {breadCrumbs ? (<div className={Style.breadCrumbDiv}><Link to='/'>Homepage</Link><span> -- {headerName}</span></div>) : null}
                     </div>
                     {/* <h1>{this.props.test}</h1> */}
                     <div>
@@ -60,7 +62,22 @@ export class BodyTopComp extends Component {
                         {filterPopup ? <FilterComp /> : null}
                     </div>
                 </div>
-                <div className={Style.rightSide}></div>
+                <div className={Style.rightSide}>
+                    <div className={Style.rightSideInfoDiv}></div>
+                    <div className={Style.addCoinDiv}>
+                        {adminTools ? (
+                        <Link to={{
+                            pathname: "/coin-form",
+                            state: {
+                                backUrl: '/',
+                                coinId: ''
+                            }
+                        }} >
+                            <img src={addNewCoin} alt="Add new coin" />
+                            <span>Add a new coin</span>
+                        </Link>) : null}
+                    </div>
+                </div>
             </div>
         );
     }

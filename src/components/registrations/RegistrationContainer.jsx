@@ -39,7 +39,7 @@ export default class RegistrationContainer extends Component {
                             <li className={!active ? Style.active : null} onClick={() => this.chanceActiveHandler(false)}>SIGN IN</li>
                         </ul>
                     </div>
-                    {!active ? <SignIn /> : <SignUp />}
+                    {!active ? <SignIn authorizationUser={this.props.authorizationUser} /> : <SignUp />}
                 </div>
             </div>
         );

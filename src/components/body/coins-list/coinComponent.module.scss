@@ -1,9 +1,12 @@
 .coinContainer {
+    box-sizing: content-box;
     width: 500px;
     height: 120px;
-    // border: 1px solid;
+    border: 1px solid rgba(119, 119, 119, 0.37);
     margin: 12.5px 5px;
+    border-radius: 5px;
     display: flex;
+    padding: 5px;
 
     .imageDiv {
         width: 120px;
@@ -19,15 +22,64 @@
         padding-left: 25px;
         // background-color: yellowgreen;
 
-        a {
-            font-weight: bold;
-            font-size: 16px;
-            text-decoration: none;
-            color: #833ae0;
+        .linkAndAddToCartDiv {
+            display: flex;
+            justify-content: space-between;
+            a {
+                font-weight: bold;
+                font-size: 16px;
+                text-decoration: none;
+                color: #833ae0;
+            }
+
+            .adminToolsDiv {
+                padding: 2px;
+                width: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                // border: 1px solid;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+                img {
+                    width: 20px;
+                    cursor: pointer;
+                }
+            }
+
+            .addToCartDiv {
+                box-sizing: content-box;
+                width: 25px;
+                height: 25px;
+                border: 1px solid #833ae0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                cursor: pointer;
+                padding: 1px;
+
+                img {
+                    width: 100%;
+                }
+
+                &:hover {
+                    background-color: #823ae021;
+                }
+            }
         }
 
         p {
             font-size: 12px;
+            margin-top: 0;
         }
     }
 }

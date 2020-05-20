@@ -63,7 +63,14 @@ export default class SignIn extends Component {
                     return resp.json();
                 }
             })
-            .then(data => console.log(data))
+            .then(data => {
+                if (data !== '') {
+                    const { login, token, admin } = data;
+                    // console.log([login, token, admin]);
+                    this.props.authorizationUser({ login, token, admin });
+
+                }
+            })
             .finally(() => this.setState({ loading: false }))
     }
 
