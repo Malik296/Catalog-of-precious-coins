@@ -69,7 +69,7 @@ export class HeaderComp extends Component {
                 <div className={Style.cartDiv}>
                     <div className={Style.imgCont}>
 
-                        {adminTools ? <><img src={deleteIcon} onClick={this.recyleBinHandler} alt="Delete logo" /></> : (
+                        {adminTools === 'true' ? <><img src={deleteIcon} onClick={this.recyleBinHandler} alt="Delete logo" /></> : (
                             <>
                                 <img src={shoppingCart} alt="Cart logo" />
                             </>

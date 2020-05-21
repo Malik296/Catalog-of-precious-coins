@@ -14,7 +14,6 @@ export class CoinsListComp extends Component {
 
     getData() {
         const { match } = this.props;
-        // console.log(this.props)
         fetch(`http://localhost:3030/list${match.url}`)
             .then(resp => resp.json())
             .then(data => this.setState({ data: data }))

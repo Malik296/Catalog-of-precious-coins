@@ -1,4 +1,6 @@
 .coinContainer {
+    font-family: "Roboto", sans-serif;
+
     box-sizing: content-box;
     width: 500px;
     height: 120px;
@@ -17,6 +19,7 @@
             width: 100%;
         }
     }
+    
     .infoDiv {
         flex-grow: 1;
         padding-left: 25px;
@@ -80,6 +83,8 @@
         p {
             font-size: 12px;
             margin-top: 0;
+            // font-style: normal;
+            // font-weight: normal;
         }
     }
 }

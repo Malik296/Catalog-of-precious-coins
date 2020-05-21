@@ -50,6 +50,7 @@ export default class SignIn extends Component {
         };
 
         this.setState({ loading: true })
+
         fetch(`http://localhost:3030/login`, {
             method: 'POST',
             body: JSON.stringify(requestBody),
@@ -66,7 +67,6 @@ export default class SignIn extends Component {
             .then(data => {
                 if (data !== '') {
                     const { login, token, admin } = data;
-                    // console.log([login, token, admin]);
                     this.props.authorizationUser({ login, token, admin });
 
                 }

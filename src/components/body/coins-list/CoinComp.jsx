@@ -7,8 +7,14 @@ import deleteIcon from '../../../img/delete/delete-icon.svg'
 import editIcon from '../../../img/edit/edit.svg'
 
 export class CoinComp extends Component {
+
+    deleteButtonHandler = (coinId) => {
+        alert(coinId);
+    }
+
     render() {
         const adminTools = localStorage.getItem('admin');
+        console.log('adminTools ' + adminTools)
         const { id, name, shortDescription, aversImg, backUrl } = this.props;
         console.log("Income Back Url = " + backUrl);
 
@@ -31,15 +37,16 @@ export class CoinComp extends Component {
                             }
                         }}>{name}</Link>
 
-                        {adminTools ? (<div className={Style.adminToolsDiv}>
+                        {adminTools === 'true' ? (<div className={Style.adminToolsDiv}>
                             <Link to={{
-                            pathname: "/coin-form",
-                            state: {
-                                backUrl: '/',
-                                coinId: id
-                            }
-                        }} ><img src={editIcon} alt="Edit icon" /></Link>                            
-                            <img src={deleteIcon} alt="Delete icon" />
+                                pathname: "/coin-form",
+                                state: {
+                                    backUrl: '/',
+                                    coinId: id
+                                }
+                            }} ><img src={editIcon} alt="Edit icon" /></Link>
+                            
+                            <img src={deleteIcon} alt="Delete icon" onClick={() => this.deleteButtonHandler(id)} />
                         </div>) : (<div className={Style.addToCartDiv}>
                             <img src={addToCart} alt="Add to cart" title="Add to cart" />
                         </div>)}

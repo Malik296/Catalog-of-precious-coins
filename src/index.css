@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   width: 100%;
@@ -5,8 +6,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: rgba(0, 0, 0, 0.705);
   background-attachment: fixed;
   background: url('./img/coins-for-bg4.jpg');
@@ -18,6 +17,8 @@ body {
   background-size: cover; */
   /* background: rgba(255, 255, 255, 0.171); */
   /* opacity: 0.2; */
+
+  
 }
 
 * {
@@ -32,6 +33,10 @@ body {
   min-height: 100vh;
   padding-bottom: 20px;
   background-color: white;
+}
+
+input[type='text'], input[type='password'], input[type='number'], textarea {
+  -webkit-appearance: meter;
 }
 
 /* body::after {
