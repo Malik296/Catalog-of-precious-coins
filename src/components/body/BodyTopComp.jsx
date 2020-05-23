@@ -5,6 +5,9 @@ import { FilterComp } from './FilterComp';
 import { Link, Redirect } from 'react-router-dom';
 import addNewCoin from '../../img/add-new-coin/add-new-coin1.svg'
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 
 export class BodyTopComp extends Component {
     state = {
@@ -21,7 +24,9 @@ export class BodyTopComp extends Component {
         priceTo: '',
 
         yearFrom: '',
-        yearTo: ''
+        yearTo: '',
+
+        requestBody: {}
     }
 
     onChangeYearFrom = (value) => {
@@ -38,10 +43,9 @@ export class BodyTopComp extends Component {
     }
 
     onChangeYearTo = (value) => {
-        let yearFrom = this.state.yearFrom;
-        console.log("onChangeYearTo = " + value);
+        let yearFrom = Number(this.state.yearFrom);
 
-        if (value < yearFrom) {
+        if (Number(value) < yearFrom) {
             yearFrom = value;
         }
 
@@ -52,9 +56,9 @@ export class BodyTopComp extends Component {
     }
 
     onChangePriceFrom = (value) => {
-        let priceTo = this.state.priceTo;
+        let priceTo = Number(this.state.priceTo);
 
-        if (value > priceTo) {
+        if (Number(value) > priceTo) {
             priceTo = value;
         }
 
@@ -65,9 +69,9 @@ export class BodyTopComp extends Component {
     }
 
     onChangePriceTo = (value) => {
-        let priceFrom = this.state.priceFrom;
+        let priceFrom = Number(this.state.priceFrom);
 
-        if (value < priceFrom) {
+        if (Number(value) < priceFrom) {
             priceFrom = value;
         }
 
@@ -99,7 +103,6 @@ export class BodyTopComp extends Component {
 
     //-------------------------------------------------------------------------------------------------
     getSearchResult = () => {
-        this.setState({ redicectToSearh: true })
 
         const requestBody = {
             searchText: this.state.searchText,
@@ -113,27 +116,21 @@ export class BodyTopComp extends Component {
 
             yearFrom: this.state.yearFrom,
             yearTo: this.state.yearTo
-
         }
 
-        fetch(`http://localhost:3030/search`, {
-            method: 'POST',
-            body: JSON.stringify(requestBody),
-            headers: { 'Content-type': 'application/json' }
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState({
-                    serchData: data,
-                    redicectToSearh: true
-                })
-                this.props.setSearchData(data);
-            })
+        this.setState({
+            filterPopup: false,
+            requestBody: requestBody,
+            redicectToSearh: true
+        });
+
+
+        this.props.setRequestBody(requestBody)
     }
     //-------------------------------------------------------------------------------------------------
 
     render() {
-        const { issuingCountry, composition, quality, priceFrom, priceTo, yearFrom, yearTo, redicectToSearh, serchData } = this.state;
+        const { issuingCountry, composition, quality, priceFrom, priceTo, yearFrom, yearTo, redicectToSearh, serchData, requestBody } = this.state;
 
         const adminTools = localStorage.getItem('admin');
         const { pathName } = this.props;
@@ -150,8 +147,8 @@ export class BodyTopComp extends Component {
         return (
             <div className={Style.topComponent}>
                 {redicectToSearh ? <Redirect to={{
-                    pathname: '/search',
-                    // state: { serchData }
+                    pathname: '/list/search',
+                    // state: { requestBody }
                 }} /> : null}
                 <div className={Style.leftSide}>
                     <div className={Style.headerNameDiv}>
@@ -160,8 +157,9 @@ export class BodyTopComp extends Component {
                     </div>
                     <div>
                         <label>Input field</label>
-                        <div>
-                            <input type="text" value={this.state.searchText} onChange={this.searchHandler} />
+                        <div className={Style.searchSection}>
+                            {/* <TextField id="outlined-basic" label="Input field" value={this.state.searchText} variant="outlined" onChange={this.searchHandler} /> */}
+                            <input type="text" value={this.state.searchText} onChange={this.searchHandler} placeholder="Search.." />
                             <button onClick={this.getSearchResult}>Search</button>
                         </div>
                         <span onClick={this.showFilter}>Advanced filter</span>

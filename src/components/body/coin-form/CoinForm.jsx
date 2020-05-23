@@ -212,7 +212,7 @@ export default class CoinForm extends Component {
                         <label htmlFor="">Year of issue</label>
                         <input type="number" placeholder='---' value={year} onChange={this.onChangeYear} />
                         <label htmlFor="">Price</label>
-                        <input type="number" placeholder='---' value={price} onChange={this.onChangePrice} />
+                        <input type="number" step="0.01" placeholder='---' value={price} onChange={this.onChangePrice} />
                         <label htmlFor="">Country</label>
                         <input type="text" placeholder='---' value={issuingCountry} onChange={this.onChangeCountry} />
                         <label htmlFor="">Metal</label>
@@ -220,13 +220,13 @@ export default class CoinForm extends Component {
                     </div>
                     <div className={Style.fomrSection}>
                         <label htmlFor="">Short description</label>
-                        <textarea name="" id="" cols="30" rows="10" placeholder='---' value={shortDescription} onChange={this.onChangeShortDescription}></textarea>
+                        <textarea name="" id="" placeholder='---' value={shortDescription} onChange={this.onChangeShortDescription}></textarea>
                         <label htmlFor="">Long description</label>
-                        <textarea name="" id="" cols="30" rows="10" placeholder='---' value={description} onChange={this.onChangeDescription}></textarea>
+                        <textarea name="" id="" placeholder='---' value={description} onChange={this.onChangeDescription}></textarea>
                         <label htmlFor="">Quality of the coin</label>
                         <input type="text" placeholder='---' value={quality} onChange={this.onChangeQuality} />
                         <label htmlFor="">Weight</label>
-                        <input type="number" placeholder='---' value={weight} onChange={this.onChangeWeight} />
+                        <input type="number" step="any" placeholder='---' value={weight} onChange={this.onChangeWeight} />
                     </div>
 
                     <div className={Style.fomrSection}>

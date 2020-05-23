@@ -10,6 +10,7 @@ export class FilterComp extends Component {
     }
 
     componentDidMount() {
+        console.log("Filter request")
         fetch(`http://localhost:3030/filter`)
             .then(resp => {
                 if (!resp.ok) {
@@ -18,6 +19,7 @@ export class FilterComp extends Component {
                 return resp.json();
             })
             .then(data => {
+                console.log(data)
                 let issuingCountry = data[0].map(obj => obj.issuing_country);
                 let composition = data[1].map(obj => obj.composition);
                 let quality = data[2].map(obj => obj.quality);
@@ -31,7 +33,6 @@ export class FilterComp extends Component {
     }
 
     contryHandler = (event) => {
-        // console.log(event.target.value);
         this.props.onChangeCountry(event.target.value)
     }
 
@@ -71,7 +72,7 @@ export class FilterComp extends Component {
                     <label htmlFor="country-id">Issuing country</label>
                     <div>
                         <select name="" id="country-id" value={issuingCountry} onChange={this.contryHandler}>
-                            <option value="" >---</option>
+                            <option value=""  style={{opacity: '0.5'}}>---</option>
                             {countryOptions}
                         </select>
 
@@ -93,18 +94,18 @@ export class FilterComp extends Component {
                 </div>
                 <div className={Style.rightSideF}>
                     <label htmlFor="country-id">Price</label>
-                    <div>
+                    <div className={Style.fromToField}>
                         <span>from</span>
-                        <input type="number" value={priceFrom} onChange={this.priceFromHandler}/>
+                        <input type="number" value={priceFrom} onChange={this.priceFromHandler} placeholder="---"/>
                         <span>to</span>
-                        <input type="number" value={priceTo} onChange={this.priceToHandler}/>
+                        <input type="number" value={priceTo} onChange={this.priceToHandler} placeholder="---"/>
                     </div>
                     <label htmlFor="metal-id">Year of issue</label>
-                    <div>
+                    <div className={Style.fromToField}>
                         <span>from</span>
-                        <input type="number" value={yearFrom} onChange={this.yearFromHandler}/>
+                        <input type="number" value={yearFrom} onChange={this.yearFromHandler}  placeholder="---"/>
                         <span>to</span>
-                        <input type="number" value={yearTo} onChange={this.yearToHandler}/>
+                        <input type="number" value={yearTo} onChange={this.yearToHandler}  placeholder="---"/>
                     </div>
                 </div>
             </div>

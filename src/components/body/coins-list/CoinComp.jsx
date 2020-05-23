@@ -9,14 +9,15 @@ import editIcon from '../../../img/edit/edit.svg'
 export class CoinComp extends Component {
 
     deleteButtonHandler = (coinId) => {
-        alert(coinId);
+        this.props.addToRecycleBin(coinId);
+        // alert(coinId);
     }
 
     render() {
         const adminTools = localStorage.getItem('admin');
-        console.log('adminTools ' + adminTools)
+        // console.log('adminTools ' + adminTools)
         const { id, name, shortDescription, aversImg, backUrl } = this.props;
-        console.log("Income Back Url = " + backUrl);
+        // console.log("Income Back Url = " + backUrl);
 
         let linkId = `/coin/${id}`;
         return (

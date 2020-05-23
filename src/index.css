@@ -1,24 +1,27 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  background-color: rgba(0, 0, 0, 0.705);
+    sans-serif; */
+  /* background-color: rgba(0, 0, 0, 0.705); */
   background-attachment: fixed;
-  background: url('./img/coins-for-bg4.jpg');
+  /* background: url('./img/coins-for-bg4.jpg'); */
   background-size: cover;
   background-attachment: fixed;
 
-  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Roboto', sans-serif;
   /* background: url('./img/coins-for-bg.jpg');
   background-size: cover; */
-  /* background: rgba(255, 255, 255, 0.171); */
   /* opacity: 0.2; */
-
   
+  /* background: rgba(182, 165, 165, 0.432); */
+  /* background-color: black; */
+  /* color: white; */
 }
 
 * {
@@ -29,15 +32,17 @@ body {
   max-width: 1180px;
   margin: 0 auto;
   /* border: 1px solid; */
-  box-shadow: 0 0 10px black;
+  /* box-shadow: 0 0 10px black; */
   min-height: 100vh;
   padding-bottom: 20px;
   background-color: white;
+  /* background-color: black;
+  color: white; */
 }
 
-input[type='text'], input[type='password'], input[type='number'], textarea {
+/* input[type='text'], input[type='password'], input[type='number'], textarea {
   -webkit-appearance: meter;
-}
+} */
 
 /* body::after {
   content: "";
@@ -62,6 +67,9 @@ input[type='text'], input[type='password'], input[type='number'], textarea {
  
 }
 
+a {
+  color: black;
+}
 
 /*---------------------------------------------------------------*/
 

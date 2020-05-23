@@ -12,9 +12,9 @@ export class GroupsComp extends Component {
         console.log(this.props);
         return (
             <div className={Style.groupsContainer}>
-                <SectionComp url="/bullion" listName="Bullion coins" imgUrl={SVD} />
-                <SectionComp url="/exclusive" listName="Exclusive coins" imgUrl={isk} />
-                <SectionComp url="/commemorative" listName="Commemorative coins" imgUrl={looney} />
+                <SectionComp url="/list/bullion" listName="Bullion coins" imgUrl={SVD} />
+                <SectionComp url="/list/exclusive" listName="Exclusive coins" imgUrl={isk} />
+                <SectionComp url="/list/commemorative" listName="Commemorative coins" imgUrl={looney} />
             </div>
         );
     }
