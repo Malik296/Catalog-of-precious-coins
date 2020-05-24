@@ -10,14 +10,17 @@ import restoreIcon from '../../img/recycle-bin/restore-icon.svg'
 export class BinCoinComp extends Component {
 
     deleteButtonHandler = (coinId) => {
-        // this.props.addToRecycleBin(coinId);
         alert(coinId);
+    }
+
+    onClickRestoreHndlr = (coinId) => {
+        alert("Restore");
     }
 
     render() {
         const {data} = this.props;
-        // console.log(this.props)
-
+        let linkId = `/coin/${data.id}`;
+        
         return (
             <div className={Style.coinContainer}>
                 <div>
@@ -28,11 +31,16 @@ export class BinCoinComp extends Component {
 
                 <div className={Style.infoDiv}>
                     <div className={Style.linkAndAddToCartDiv}>
-                        <Link to="">{data.name}</Link>
+                    <Link to={{
+                            pathname: linkId,
+                            state: {
+                                backUrl: '/recycle-bin',
+                            }
+                        }}>{data.name}</Link>
 
                         <div className={Style.adminToolsDiv}>
-                            <img src={restoreIcon} onClick={() => alert("Restore")} alt="Edit icon" />
-                            <img src={deleteIcon} alt="Delete icon" onClick={() => this.deleteButtonHandler(12)} />
+                            <img src={restoreIcon} onClick={() => this.onClickRestoreHndlr(data.id)} alt="Edit icon" />
+                            <img src={deleteIcon} alt="Delete icon" onClick={() => this.deleteButtonHandler(data.id)} />
                         </div>
                     </div>
                     <p>{data.shortDescription}</p>

@@ -7,8 +7,12 @@ import deleteIcon from '../../img/delete/delete-icon.svg'
 import { RegisterComp } from './MyProfile';
 import RegistrationContainer from '../registrations/RegistrationContainer';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+import { setCountRecycleBin } from '../../store/header/actions'
 
-export class HeaderComp extends Component {
+
+class HeaderComp extends Component {
     state = {
         myProfilePopup: false,
 
@@ -25,6 +29,28 @@ export class HeaderComp extends Component {
         this.setState({ user: { login, token, admin } });
 
         console.log([login, token, admin]);
+        console.log("First Start");
+        if (admin === 'true') {
+            this.getRecycleBinCount();
+        }
+    }
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
+    }
+
+    getRecycleBinCount() {
+        fetch('http://localhost:3030/recycle-bin')
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText)
+                }
+                return res.json();
+            })
+            .then(data => {
+                this.props.setCountRecycleBin(data.allCount);
+            })
+            .catch(err => console.log(err))
     }
 
     authorizationUser = (data) => {
@@ -56,7 +82,7 @@ export class HeaderComp extends Component {
     }
 
     recyleBinHandler = () => {
-        
+
     }
 
     render() {
@@ -76,7 +102,7 @@ export class HeaderComp extends Component {
                             </>
                         )}
                         <div className={Style.countDiv}>
-                            <span>0</span>
+                            <span>{this.props.count}</span>
                         </div>
                     </div>
                 </div>
@@ -95,3 +121,15 @@ export class HeaderComp extends Component {
         );
     }
 }
+
+const putStateToProps = (state) => {
+    return {
+        count: state.header.count
+    };
+}
+
+const putPropsToState = {
+    setCountRecycleBin
+}
+
+export default connect(putStateToProps, putPropsToState)(HeaderComp);

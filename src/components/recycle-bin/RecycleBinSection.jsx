@@ -13,9 +13,13 @@ export default class RecycleBinSection extends Component {
         this.getData();
     }
 
+    UNSAFE_componentWillReceiveProps() {
+        this.getData();
+    }
+
     getData() {
         let listName = this.props.listName.toLowerCase().split(' ')[0];
-        console.log(listName);
+
 
         const requestBody = {
             limit: this.props.count,
@@ -71,6 +75,7 @@ export default class RecycleBinSection extends Component {
                     <button className={Style.restoreButton}>Restore All</button>
                     <button className={Style.deleteButton}>Delete All</button>
                 </div>
+
                 {this.state.listPopup ? <ListPopup data={this.state.data} closeListPopup={this.closeListPopup} /> : null}
             </div>
         );

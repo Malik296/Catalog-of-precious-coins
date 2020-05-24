@@ -13,7 +13,7 @@ export default class RecycleBin extends Component {
     }
 
     getData() {
-        fetch('http://localhost:3030/recycle-bin', {method: 'GET'})
+        fetch('http://localhost:3030/recycle-bin')
             .then(res => {
                 if (!res.ok) {
                     throw Error(res.statusText);
@@ -21,7 +21,6 @@ export default class RecycleBin extends Component {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 this.setState({...this.state, ...data});
             })
             .catch(err => alert(err));
@@ -29,7 +28,6 @@ export default class RecycleBin extends Component {
 
     render() {
         const { commemorative, bullion, exclusive } = this.state;
-        // console.log([ commemorative, bullion, exclusive ]);
         return (
             <div className={Style.recycleBinContainer}>
                 <h1>Recycle Bin</h1>

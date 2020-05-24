@@ -3,7 +3,7 @@ import { Component } from 'react';
 import Style from './list.module.scss';
 import { GroupsComp } from '../croup/GroupsComp';
 import { Route } from "react-router-dom";
-import { CoinsListComp } from './coins-list/CoinsListComp';
+import CoinsListComp from './coins-list/CoinsListComp';
 import { BodyTopComp } from './BodyTopComp';
 import { Search } from './search/Search';
 

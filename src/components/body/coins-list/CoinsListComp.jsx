@@ -3,8 +3,11 @@ import { Component } from 'react';
 import { CoinComp } from './CoinComp';
 import Pagination from '@material-ui/lab/Pagination';
 import Style from './coinComponent.module.scss';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setCountRecycleBin } from '../../../store/header/actions';
 
-export class CoinsListComp extends Component {
+class CoinsListComp extends Component {
 
     state = {
         data: [],
@@ -25,7 +28,6 @@ export class CoinsListComp extends Component {
 
     componentWillReceiveProps() {
         const { requestBody } = this.props;
-        console.log(requestBody)
         this.setState({ requestBody: requestBody });
 
         this.getData(this.state.page);
@@ -58,7 +60,6 @@ export class CoinsListComp extends Component {
                     })
                 })
         } else {
-            console.log(coorectUrl);
             fetch(`http://localhost:3030/list${coorectUrl}`, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -81,18 +82,19 @@ export class CoinsListComp extends Component {
     }
 
     onChancePagination = (e, page) => {
-        this.setState({page: page});
+        this.setState({ page: page });
         this.getData(page)
     }
 
     addToRecycleBin = (coinId) => {
         const conf = window.confirm("Are you sure?");
-        if(!conf) {
+        if (!conf) {
             return;
         }
         const requestBody = {
             coinId: coinId,
             token: localStorage.getItem('token'),
+            showCoin: 0,
         }
 
         fetch('http://localhost:3030/recycle-bin', {
@@ -100,21 +102,21 @@ export class CoinsListComp extends Component {
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
         })
-        .then(resp => {
-            if (!resp.ok) {
-                throw Error(resp.statusText);
-            }
-            return resp.json();
-        })
-        .then(data => {
-            alert("Success");
-            this.getData(this.state.page);
-        })
-        .catch(error => {
-            alert(error)
-            console.log(error)
-        })
-        
+            .then(resp => {
+                if (!resp.ok) {
+                    throw Error(resp.statusText);
+                }
+                return resp.json();
+            })
+            .then(data => {
+                this.getData(this.state.page);
+                this.props.setCountRecycleBin(Number(this.props.count) + 1)
+            })
+            .catch(error => {
+                alert(error)
+                console.log(error)
+            })
+
     }
 
     render() {
@@ -140,3 +142,15 @@ export class CoinsListComp extends Component {
         );
     }
 }
+
+const putStateToProps = (state) => {
+    return {
+        count: state.header.count
+    };
+}
+
+const putPropsToState = {
+    setCountRecycleBin,
+}
+
+export default connect(putStateToProps, putPropsToState)(CoinsListComp);
