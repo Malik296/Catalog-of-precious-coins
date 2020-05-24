@@ -20,7 +20,7 @@ body {
   /* opacity: 0.2; */
   
   /* background: rgba(182, 165, 165, 0.432); */
-  /* background-color: black; */
+  background-color: #EDF0F5;
   /* color: white; */
 }
 
@@ -62,10 +62,6 @@ body {
 } */
 
 /*Header style---------------------------------------------------*/
-
-.header-container {
- 
-}
 
 a {
   color: black;

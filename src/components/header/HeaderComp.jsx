@@ -6,6 +6,7 @@ import shoppingCart from '../../img/header/shopping-cart.svg'
 import deleteIcon from '../../img/delete/delete-icon.svg'
 import { RegisterComp } from './MyProfile';
 import RegistrationContainer from '../registrations/RegistrationContainer';
+import { Link } from 'react-router-dom';
 
 export class HeaderComp extends Component {
     state = {
@@ -69,7 +70,7 @@ export class HeaderComp extends Component {
                 <div className={Style.cartDiv}>
                     <div className={Style.imgCont}>
 
-                        {adminTools === 'true' ? <><img src={deleteIcon} onClick={this.recyleBinHandler} alt="Delete logo" /></> : (
+                        {adminTools === 'true' ? <Link to="/recycle-bin"><img src={deleteIcon} onClick={this.recyleBinHandler} alt="Delete logo" /></Link> : (
                             <>
                                 <img src={shoppingCart} alt="Cart logo" />
                             </>

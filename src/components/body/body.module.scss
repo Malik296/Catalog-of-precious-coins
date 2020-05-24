@@ -79,6 +79,10 @@
                     border-radius: 3px;
                     background-color: #833ae0;
                     cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
             }
 

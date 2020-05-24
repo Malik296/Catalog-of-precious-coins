@@ -63,7 +63,8 @@ export class CoinsListComp extends Component {
                 method: 'POST',
                 body: JSON.stringify({
                     limit: this.state.limit,
-                    page: page
+                    page: page,
+                    showCoin: 1
                 }),
                 headers: { 'Content-type': 'application/json' }
             })

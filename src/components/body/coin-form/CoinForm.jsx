@@ -191,8 +191,6 @@ export default class CoinForm extends Component {
                 alert(error)
                 console.log(error)
             })
-        // .finally(() => {} )
-
     }
 
     render() {
