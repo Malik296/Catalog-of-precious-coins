@@ -25,11 +25,14 @@ class AuthorizedProfile extends Component {
                     <p>Hello again, <span>{login}</span></p>
                     <Link to='/' onClick={this.logoutHandler} >Logout</Link>
                 </div>
-                {/* <hr /> */}
-                <div className={Style.registerButtons}>
-                    {/* <button className={Style.sgnIn} onClick={() => this.props.onClickHandler('signUp')}>Sign up</button>
-                    <button className={Style.sgnOut} onClick={() => this.props.onClickHandler('signIn')}>Sign in</button> */}
+                <hr />
+                <div>
+                    <ul>
+                        <li>История просмотра</li>
+                    </ul>
                 </div>
+                <hr />
+
             </>
         );
     }

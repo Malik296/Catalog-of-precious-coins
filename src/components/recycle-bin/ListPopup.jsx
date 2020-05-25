@@ -7,7 +7,7 @@ export default class ListPopup extends Component {
         const { data } = this.props;
         let rows = [];
         if (data) {
-            rows = data.map(obj => (<BinCoinComp key={obj.id} data={obj} />))
+            rows = data.map(obj => (<BinCoinComp key={obj.id} data={obj} restoreByIdHndlr={this.props.restoreByIdHndlr} />))
         }
         return (
             <div className={Style.listPopupContainer} onClick={this.props.closeListPopup}>

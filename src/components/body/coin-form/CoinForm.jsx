@@ -43,7 +43,6 @@ export default class CoinForm extends Component {
 
     componentDidMount = () => {
         if (this.props.history.location.state) {
-
             const { backUrl, coinId } = this.props.history.location.state;
             this.setState({ backUrl, coinId });
 

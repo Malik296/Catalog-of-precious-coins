@@ -14,7 +14,7 @@ export class BinCoinComp extends Component {
     }
 
     onClickRestoreHndlr = (coinId) => {
-        alert("Restore");
+        this.props.restoreByIdHndlr(coinId);
     }
 
     render() {

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import Style from './recycle.module.scss';
 import RecycleBinSection from './RecycleBinSection';
+import { connect } from 'react-redux';
+import { setCountRecycleBinType } from '../../store/recycle-bin/actions';
 
-export default class RecycleBin extends Component {
-    state = {
-        commemorative: 0,
-        bullion: 0,
-        exclusive: 0,
-    }
+class RecycleBin extends Component {
     componentDidMount() {
         this.getData();
     }
@@ -21,22 +18,37 @@ export default class RecycleBin extends Component {
                 return res.json();
             })
             .then(data => {
-                this.setState({...this.state, ...data});
+                this.props.setCountRecycleBinType(data)
             })
             .catch(err => alert(err));
     }
 
     render() {
-        const { commemorative, bullion, exclusive } = this.state;
+        const { commemorative, bullion, exclusive } = this.props;
         return (
             <div className={Style.recycleBinContainer}>
                 <h1>Recycle Bin</h1>
                 <div className={Style.sectionsContainer}>
-                    <RecycleBinSection count={bullion} listName="Bullion coins" />
-                    <RecycleBinSection count={exclusive} listName="Exclusive coins" />
-                    <RecycleBinSection count={commemorative} listName="Commemorative coins" />
+                    <RecycleBinSection getData={this.getData} count={bullion} listName="Bullion coins" />
+                    <RecycleBinSection getData={this.getData} count={exclusive} listName="Exclusive coins" />
+                    <RecycleBinSection getData={this.getData} count={commemorative} listName="Commemorative coins" />
                 </div>
             </div>
         );
     }
 }
+
+
+const putStateToProps = (state) => {
+    return {
+        commemorative: state.recycleBin.commemorative,
+        bullion: state.recycleBin.bullion,
+        exclusive: state.recycleBin.exclusive,
+    }
+}
+
+const putPropsToState = {
+    setCountRecycleBinType
+}
+
+export default connect(putStateToProps, putPropsToState)(RecycleBin);

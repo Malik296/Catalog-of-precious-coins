@@ -11,18 +11,12 @@ export class RegisterComp extends Component {
         if(login && login !== '') {
             checkAuthorize = true;
         }
-        console.log("Login in storage" + login);
+        // console.log("Login in storage" + login);
         return (
             <div className={Style.registerPopup}>
                 {checkAuthorize ? <AuthorizedProfile /> : <UnauthorizedProfile {...this.props}/> }
-                {/* <UnauthorizedProfile {...this.props}/> */}
-                {/* <AuthorizedProfile /> */}
-                {/* <div><p>Welcom to coins Site</p></div>
-                <hr />
-                <div className={Style.registerButtons}>
-                    <button className={Style.sgnIn} onClick={() => this.props.onClickHandler('signUp')}>Sign up</button>
-                    <button className={Style.sgnOut} onClick={() => this.props.onClickHandler('signIn')}>Sign in</button>
-                </div> */}
+                
+                <div>Setting</div>
             </div>
         );
     }

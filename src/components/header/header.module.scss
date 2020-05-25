@@ -1,122 +1,169 @@
 .headerContainer {
-    font-family: Roboto, sans-serif;
+    // width: 100%;
+    // background-color: #fafafa;
+    // background-color: #fafafa50;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+
+    // background-color: rgba(187, 186, 186, 0.233);
     background-color: #fafafa;
-    height: 40px;
-    // border: 1px solid;
-    display: flex;
-    // padding: 0 10px;
-
-    h2 {
-        margin: 0;
-    }
-
-    .logoDiv {
-        flex-grow: 1;
-    }
-
-    .cartDiv {
-        // border: 1px solid;
-        padding: 3px 0;
-        width: 80px;
+    box-shadow: 0 0 10px #9c61e6;
+    .maxWidthDiv {
+        height: 55px;
+        max-width: 1280px;
+        margin: 0 auto;
         display: flex;
-        align-items: center;
-        .imgCont {
-            position: relative;
-            cursor: pointer;
+
+        h2 {
+            margin: 0;
+        }
+
+        .logoDiv {
+            flex-grow: 1;
+            // padding-left: 50px;
+            display: flex;
+            align-items: center;
+
             img {
-                width: 23px;
+                width: 45px;
+                margin-right: 20px;
+                animation: mymove 3s infinite;
+            }
+
+            @keyframes mymove {
+                from {
+                    transform: rotateY(0deg);
+                }
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+        }
+
+        .cartDiv {
+            padding: 3px 0;
+            width: 80px;
+            display: flex;
+            align-items: center;
+
+            .imgCont {
+                position: relative;
+                cursor: pointer;
+                img {
+                    width: 23px;
+                    opacity: 0.7;
+                }
+
+                .countDiv {
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                    background-color: #833ae0;
+                    color: white;
+                    min-width: 16px;
+                    min-height: 16px;
+                    border-radius: 100%;
+                    font-size: 11px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .myProfile {
+            position: relative;
+            width: 140px;
+            padding: 0 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                width: 15px;
                 opacity: 0.7;
             }
 
-            .countDiv {
-                position: absolute;
-                top: -5px;
-                right: -5px;
-                background-color: #833AE0;
-                color: white;
-                min-width: 16px;
-                min-height: 16px;
-                border-radius: 100%;
-                font-size: 11px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // text-align: center;
-            }
-        }
-    }
-
-    .myProfile {
-        position: relative;
-        width: 120px;
-        padding: 0 7px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-            width: 15px;
-            opacity: 0.7;
-        }
-
-        &:hover {
-            background-color: white;
-            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.377);
-        }
-
-        span {
-            font-size: 14px;
-        }
-
-        .registerPopup {
-            padding: 10px;
-            width: 240px;
-            min-height: 50px;
-            position: absolute;
-            top: 35px;
-            right: 0;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.377);
-            // background-color: yellowgreen;
-            z-index: 1;
-            cursor: auto;
-
-            .registerButtons {
-                display: flex;
-                justify-content: space-between;
-                button {
-                    padding: 6px 0;
-                    width: 100px;
-                    border-radius: 2px;
-                    border-style: none;
-                    cursor: pointer;
-                    font-weight: 700;
-                }
-
-                .sgnIn {
-                    background-color: #833ae0;
-                    color: #fff;
-                }
-
-                .sgnOut {
-                    background-color: #f1e6ff;
-                    color: #833ae0;
-                }
+            &:hover {
+                background-color: white;
+                box-shadow: 0 -4px 4px #823ae077;
             }
 
-            p {
-                margin: 7px 0;
-                span {
-                    font-weight: bold;
-                }
-            }
-
-            a {
-                display: inline-block;
-                text-decoration: none;
-                color: #06c;
+            span {
                 font-size: 14px;
-                margin-bottom: 10px;
+            }
+
+            .registerPopup {
+                padding: 10px;
+                width: 240px;
+                min-height: 50px;
+                position: absolute;
+                background-color: white;
+                top: 55px;
+                right: 0;
+                box-shadow: 0 4px 4px #823ae042;
+                z-index: 1;
+                cursor: auto;
+
+                .registerButtons {
+                    display: flex;
+                    justify-content: space-between;
+                    button {
+                        padding: 6px 0;
+                        width: 100px;
+                        border-radius: 2px;
+                        border-style: none;
+                        cursor: pointer;
+                        font-weight: 700;
+                    }
+
+                    .sgnIn {
+                        background-color: #833ae0;
+                        color: #fff;
+                    }
+
+                    .sgnOut {
+                        background-color: #f1e6ff;
+                        color: #833ae0;
+                    }
+                }
+
+                p {
+                    margin: 7px 0;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: #06c;
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0 0 5px;
+
+                    li {
+                        display: block;
+                        line-height: 32px;
+                        height: 32px;
+                        white-space: nowrap;
+                        cursor: pointer;
+                        opacity: 0.8;
+
+                        &:hover {
+                            background-color: #b4a2cc52;
+                            opacity: 1;
+                        }
+                    }
+                }
             }
         }
     }

@@ -3,7 +3,7 @@
         font-weight: 300;
         font-size: 50px;
         line-height: 59px;
-        margin: 52px 0 0;
+        margin: 52px 0 0;   
     }
 
     .sectionsContainer {
@@ -44,10 +44,15 @@
                     width: 80%;
                 }
 
-                h3 {
-                    margin: 0;
-                    font-weight: normal;
+                img {
+                    margin-top: 10px;
+                    width: 30px;
                 }
+
+                // h3 {
+                //     margin: 0;
+                //     font-weight: normal;
+                // }
             }
 
             .buttonsDiv {

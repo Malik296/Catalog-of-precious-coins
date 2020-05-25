@@ -6,7 +6,7 @@ class UnauthorizedProfile extends Component {
     render() {
         return (
             <>
-                <div><p>Welcom to coins Site</p></div>
+                <div><p>Welcome to the rare coins Site</p></div>
                 <hr />
                 <div className={Style.registerButtons}>
                     <button className={Style.sgnIn} onClick={() => this.props.onClickHandler('signUp')}>Sign up</button>

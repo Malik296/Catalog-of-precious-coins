@@ -12,8 +12,8 @@ const store = createStore(rootReducer);
 function App() {
   return (
     <Provider store={store}>
+      <HeaderComp />
       <div className="App">
-        <HeaderComp />
         <BodyComp />
       </div>
     </Provider>
