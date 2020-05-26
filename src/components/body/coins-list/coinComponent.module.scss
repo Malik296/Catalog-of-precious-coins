@@ -1,6 +1,5 @@
 .paginationContainer {
     width: 100%;
-    // border: 1px solid;
     display: flex;
     justify-content: center;
     padding: 7px;
@@ -10,19 +9,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    
+
     .searchInfoSection {
-        // width: 200px;
         display: flex;
         background-color: rgba(148, 175, 148, 0.219);
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.616);
         justify-content: space-between;
         align-items: center;
-        // border: 1px solid;
         border-radius: 3px;
         margin-bottom: 10px;
         padding: 5px 10px;
-
 
         h3 {
             margin: 0 10px;
@@ -31,8 +27,6 @@
 }
 
 .coinContainer {
-    font-family: "Roboto", sans-serif;
-
     box-sizing: content-box;
     width: 500px;
     height: 120px;
@@ -46,7 +40,6 @@
     .imageDiv {
         width: 120px;
         height: 120px;
-        // margin: 5px;
 
         img {
             width: 100%;
@@ -56,9 +49,9 @@
     .infoDiv {
         flex-grow: 1;
         padding-left: 25px;
-        // background-color: yellowgreen;
 
         .linkAndAddToCartDiv {
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             a {
@@ -74,7 +67,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                // border: 1px solid;
 
                 a {
                     display: flex;
@@ -115,9 +107,8 @@
 
         p {
             font-size: 12px;
+            padding-right: 20px;
             margin-top: 0;
-            // font-style: normal;
-            // font-weight: normal;
         }
     }
 }

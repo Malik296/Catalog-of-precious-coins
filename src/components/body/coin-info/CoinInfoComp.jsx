@@ -13,7 +13,7 @@ export class CoinInfoComp extends Component {
 
     getDataById() {
         const { match } = this.props;
-        fetch(`http://localhost:3030${match.url}`)
+        fetch(`${match.url}`)
             .then(res => res.json())
             .then(data => this.setState({ coinData: data }));
     }

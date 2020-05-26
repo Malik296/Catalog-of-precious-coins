@@ -33,6 +33,7 @@ export default class RegistrationContainer extends Component {
             <div className={Style.registrationСontainer}>
                 <div className={Style.registrationSection}>
                     <div className={Style.closeButtonDiv}><span onClick={this.closeButtonHandler}>&#10005;</span></div>
+                    <h2 style={{textAlign: "center"}}>Admin panel</h2>
                     <div className={Style.navDiv}>
                         <ul>
                             <li className={active ? Style.active : null} onClick={() => this.chanceActiveHandler(true)}>SIGN UP</li>

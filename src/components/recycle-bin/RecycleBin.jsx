@@ -10,7 +10,7 @@ class RecycleBin extends Component {
     }
 
     getData() {
-        fetch('http://localhost:3030/recycle-bin')
+        fetch('/recycle-bin')
             .then(res => {
                 if (!res.ok) {
                     throw Error(res.statusText);

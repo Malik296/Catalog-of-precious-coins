@@ -9,6 +9,7 @@ export default class ListPopup extends Component {
         if (data) {
             rows = data.map(obj => (<BinCoinComp key={obj.id} data={obj} restoreByIdHndlr={this.props.restoreByIdHndlr} />))
         }
+        
         return (
             <div className={Style.listPopupContainer} onClick={this.props.closeListPopup}>
                 <div className={Style.listContainer}>

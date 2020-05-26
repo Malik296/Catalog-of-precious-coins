@@ -148,7 +148,6 @@ export class BodyTopComp extends Component {
             <div className={Style.topComponent}>
                 {redicectToSearh ? <Redirect to={{
                     pathname: '/list/search',
-                    // state: { requestBody }
                 }} /> : null}
                 <div className={Style.leftSide}>
                     <div className={Style.headerNameDiv}>
@@ -158,7 +157,6 @@ export class BodyTopComp extends Component {
                     <div>
                         <label>Input field</label>
                         <div className={Style.searchSection}>
-                            {/* <TextField id="outlined-basic" label="Input field" value={this.state.searchText} variant="outlined" onChange={this.searchHandler} /> */}
                             <input type="text" value={this.state.searchText} onChange={this.searchHandler} placeholder="Search.." />
                             <button onClick={this.getSearchResult}>Search</button>
                         </div>

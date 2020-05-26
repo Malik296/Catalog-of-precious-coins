@@ -2,24 +2,22 @@
     padding: 0 50px;
 
     .topComponent {
-        min-height: 250px;
-        // border: 1px solid;
+        min-height: 240px;
         display: flex;
         width: 100%;
         margin-bottom: 20px;
+        
         .leftSide {
             width: 60%;
-            // border: 1px solid;
 
             .headerNameDiv {
                 position: relative;
                 padding-bottom: 27px;
-                // background-color: yellowgreen;
                 h1 {
                     font-weight: 300;
                     font-size: 50px;
                     line-height: 59px;
-                    margin: 52px 0 0;
+                    margin: 42px 0 0;
                 }
 
                 .breadCrumbDiv {
@@ -51,7 +49,6 @@
                 align-items: center;
                 justify-content: space-between;
                 margin: 7px 0 10px;
-
                 label {
                     font-weight: 500;
                     font-size: 14px;
@@ -62,7 +59,6 @@
                     height: 48px;
                     font-size: 18px;
                     padding: 6px 10px 7px;
-                    // margin: 7px 0 10px;
                     padding: 0 10px;
                     border-radius: 3px;
                     border: 1px solid #777777;
@@ -103,7 +99,6 @@
                 .leftSideF {
                     flex: 50%;
                     margin-right: 7px;
-                    // border: 1px solid;
 
                     select {
                         width: 375px;

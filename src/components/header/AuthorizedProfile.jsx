@@ -1,13 +1,13 @@
 import React from 'react';
 import { Component } from 'react';
-import Style from './header.module.scss'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { showHistori } from '../../store/header/actions';
 
 class AuthorizedProfile extends Component {
     logoutHandler = () => {
-        // localStorage.clear();
         const token = localStorage.getItem('token');
-        fetch(`http://localhost:3030/token`, {
+        fetch(`/token`, {
             method: 'DELETE',
             body: JSON.stringify({ token }),
             headers: { 'Content-type': 'application/json' }
@@ -17,6 +17,11 @@ class AuthorizedProfile extends Component {
                 localStorage.clear()
             })
     }
+
+    onClickShowHistory = () => {
+        this.props.showHistori(true);
+    }
+
     render() {
         const login = localStorage.getItem('login');
         return (
@@ -28,14 +33,24 @@ class AuthorizedProfile extends Component {
                 <hr />
                 <div>
                     <ul>
-                        <li>История просмотра</li>
+                        <li onClick={this.onClickShowHistory}>Watch History</li>
                     </ul>
                 </div>
                 <hr />
-
             </>
         );
     }
 }
 
-export default AuthorizedProfile;
+
+const putStateToProps = (state) => {
+    return {
+        showHistory: state.header.showHistory
+    };
+}
+
+const putPropsToState = {
+    showHistori
+}
+
+export default connect(putStateToProps, putPropsToState)(AuthorizedProfile);

@@ -51,7 +51,7 @@ export default class SignIn extends Component {
 
         this.setState({ loading: true })
 
-        fetch(`http://localhost:3030/login`, {
+        fetch(`/login`, {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
@@ -107,16 +107,14 @@ export default class SignIn extends Component {
                     <input type="text" placeholder="Login"
                         style={alertLogin ? { border: '1px solid red' } : null}
                         onChange={this.loginChanceHandler}
-                        // onBlur={this.onBlurName}
                         value={login} />
                     {alertLogin ? <span>Please enter your login.</span> : null}
 
                 </div>
                 <div className={Style.inputDiv}>
-                    <input type="password" placeholder="Repeat password"
+                    <input type="password" placeholder="Password"
                         style={alertPassword ? { border: '1px solid red' } : null}
                         onChange={this.passwordChanceHandler}
-                        // onBlur={this.onBlurPassword}
                         value={password} />
                     {alertPassword ? <span>Please enter your password.</span> : null}
 

@@ -11,7 +11,7 @@ export class FilterComp extends Component {
 
     componentDidMount() {
         console.log("Filter request")
-        fetch(`http://localhost:3030/filter`)
+        fetch(`/filter`)
             .then(resp => {
                 if (!resp.ok) {
                     throw Error(resp.statusText);

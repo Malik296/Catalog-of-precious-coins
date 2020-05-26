@@ -4,7 +4,6 @@ import { CoinComp } from './CoinComp';
 import Pagination from '@material-ui/lab/Pagination';
 import Style from './coinComponent.module.scss';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { setCountRecycleBin } from '../../../store/header/actions';
 
 class CoinsListComp extends Component {
@@ -40,7 +39,7 @@ class CoinsListComp extends Component {
         if (coorectUrl === '/search') {
             const { requestBody } = this.props;
 
-            fetch(`http://localhost:3030/search`, {
+            fetch(`/search`, {
                 method: 'POST',
                 body: JSON.stringify({
                     ...requestBody,
@@ -60,7 +59,7 @@ class CoinsListComp extends Component {
                     })
                 })
         } else {
-            fetch(`http://localhost:3030/list${coorectUrl}`, {
+            fetch(`/list${coorectUrl}`, {
                 method: 'POST',
                 body: JSON.stringify({
                     limit: this.state.limit,
@@ -91,13 +90,14 @@ class CoinsListComp extends Component {
         if (!conf) {
             return;
         }
+        
         const requestBody = {
             coinId: coinId,
             token: localStorage.getItem('token'),
             showCoin: 0,
         }
 
-        fetch('http://localhost:3030/recycle-bin', {
+        fetch('/recycle-bin', {
             method: 'PUT',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }

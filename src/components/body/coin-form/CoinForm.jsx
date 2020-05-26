@@ -53,7 +53,7 @@ export default class CoinForm extends Component {
     }
 
     getData(coinId) {
-        fetch(`http://localhost:3030/coin/${coinId}`)
+        fetch(`/coin/${coinId}`)
             .then(resp => {
                 if (resp.status !== 404) {
                     return resp.json()
@@ -143,7 +143,7 @@ export default class CoinForm extends Component {
         const photo = event.target;
         formData.append('photo', photo.files[0]);
 
-        fetch(`http://localhost:3030/upload`, {
+        fetch(`/upload`, {
             method: 'POST',
             body: formData
         })
@@ -156,7 +156,7 @@ export default class CoinForm extends Component {
         const photo = event.target;
         formData.append('photo', photo.files[0]);
 
-        fetch(`http://localhost:3030/upload`, {
+        fetch(`/upload`, {
             method: 'POST',
             body: formData
         })
@@ -171,7 +171,7 @@ export default class CoinForm extends Component {
             coinData: this.state.coinData
         }
 
-        fetch(`http://localhost:3030/coin`, {
+        fetch(`/coin`, {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
@@ -199,7 +199,7 @@ export default class CoinForm extends Component {
         return (
             <div className={Style.coinFormContainer}>
                 {this.renderRedirect()}
-                <h1>{coinId !== '' ? 'Coin data update' : 'Adding a coin'}</h1>
+                <h1>{coinId !== '' ? 'Coin data update' : 'Add coin'}</h1>
                 <form onSubmit={this.sendDataToServer}>
                     <div className={Style.fomrSection}>
                         <label htmlFor="">Coin name</label>

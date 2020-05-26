@@ -29,7 +29,7 @@ export default class SignUp extends Component {
             password: this.state.password,
             repeatPassword: this.state.repeatPassword
         };
-        fetch(`http://localhost:3030/register`, {
+        fetch(`/register`, {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }

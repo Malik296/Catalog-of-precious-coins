@@ -11,12 +11,11 @@ export class RegisterComp extends Component {
         if(login && login !== '') {
             checkAuthorize = true;
         }
-        // console.log("Login in storage" + login);
         return (
             <div className={Style.registerPopup}>
                 {checkAuthorize ? <AuthorizedProfile /> : <UnauthorizedProfile {...this.props}/> }
                 
-                <div>Setting</div>
+                {/* <div>Setting</div> */}
             </div>
         );
     }

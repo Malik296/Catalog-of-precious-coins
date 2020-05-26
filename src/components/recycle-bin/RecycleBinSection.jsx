@@ -26,7 +26,7 @@ class RecycleBinSection extends Component {
             showCoin: 0,
         }
 
-        fetch(`http://localhost:3030/list/${listName}`, {
+        fetch(`/list/${listName}`, {
             method: 'POST',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
@@ -67,7 +67,7 @@ class RecycleBinSection extends Component {
             showCoin: 1,
         }
 
-        fetch('http://localhost:3030/recycle-bin', {
+        fetch('/recycle-bin', {
             method: 'PUT',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
@@ -103,7 +103,7 @@ class RecycleBinSection extends Component {
         }
 
 
-        fetch(`http://localhost:3030/restore`, {
+        fetch(`/restore`, {
             method: 'PUT',
             body: JSON.stringify(requestBody),
             headers: { 'Content-type': 'application/json' }
@@ -131,7 +131,7 @@ class RecycleBinSection extends Component {
             listName: listName
         }
 
-        fetch(`http://localhost:3030/delete-all`, {
+        fetch(`/delete-all`, {
             method: 'DELETE',
             body: JSON.stringify(requestBody),
             headers: {'Content-type': 'application/json'}
